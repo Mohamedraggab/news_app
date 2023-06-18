@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => AppCubit()..getSports()..getScience()..getTech(),
+      create: (context) => AppCubit()..getSports()..getScience()..getTech()..getBusiness(),
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,
         home: LayoutScreen(),

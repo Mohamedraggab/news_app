@@ -43,6 +43,7 @@ class LayoutScreen extends StatelessWidget {
               BottomNavigationBarItem(icon: Icon(Icons.sports_soccer) , label: 'Sports'),
               BottomNavigationBarItem(icon: Icon(Icons.smart_toy_outlined) , label: 'Tech'),
               BottomNavigationBarItem(icon: Icon(Icons.science_outlined) , label: 'Sciences'),
+              BottomNavigationBarItem(icon: Icon(Icons.business) , label: 'Business'),
             ],
           ),
         );

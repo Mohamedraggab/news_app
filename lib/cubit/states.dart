@@ -19,6 +19,14 @@ class GetScienceSuccessState extends AppState {}
 class GetScienceErrorState extends AppState {}
 
 
+
+class GetBusinessState extends AppState {}
+class GetBusinessSuccessState extends AppState {}
+class GetBusinessErrorState extends AppState {}
+
+
+
+
 class SearchLoadingState extends AppState {}
 class SearchSuccessState extends AppState {}
 class SearchErrorState extends AppState {}

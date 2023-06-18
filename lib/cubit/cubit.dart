@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app/cubit/states.dart';
 import 'package:news_app/network/helper/dio_helper.dart';
+import 'package:news_app/screens/business.dart';
 import 'package:news_app/screens/science.dart';
 import 'package:news_app/screens/sports.dart';
 import 'package:news_app/screens/tech.dart';
@@ -27,18 +28,21 @@ class AppCubit extends Cubit<AppState>
     SportsScreen(),
     TechScreen(),
     ScienceScreen(),
+    BusinessScreen(),
   ];
 
   var titles = const [
     Text('Sports News'),
     Text('Tech News'),
     Text('Science News'),
+    Text('Business News'),
   ];
 
 
   List<dynamic> sport = [];
   List<dynamic> science = [] ;
   List<dynamic> tech = [] ;
+  List<dynamic> business = [] ;
 
 
   getSports()
@@ -103,6 +107,27 @@ class AppCubit extends Cubit<AppState>
       emit(GetTechErrorState());
     });
   }
+
+
+  getBusiness()
+  {
+    emit(GetBusinessState());
+    DioHelper.getDate(
+        path: 'top-headlines',
+        query: {
+          'country':'eg',
+          'category':'business',
+          'apiKey':'4ca5582741d3481f8c715c5655623356',
+        })
+        .then((value){
+      business = value.data['articles'];
+      emit(GetBusinessSuccessState());
+    }).catchError((error){
+      print('the error is ${error.toString()}');
+      emit(GetBusinessErrorState());
+    });
+  }
+
 
 
 
